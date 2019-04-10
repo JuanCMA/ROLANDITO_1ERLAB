@@ -1,0 +1,74 @@
+package trabajo;
+
+import java.util.Scanner;
+
+public class TRABAJO {
+
+    public static void main(String[] args) {
+
+        Scanner escaneando= new Scanner(System.in);
+        System.out.println("AGREGAR DATO");
+        String palabra=escaneando.nextLine();
+        char [] caracter = palabra.toCharArray();
+        char ultimo = palabra.charAt(palabra.length()-1);
+         char penultimo = palabra.charAt(palabra.length()-2);
+        int estado=0;
+      for(int i=1 ;i<caracter.length;i++)
+      {
+       switch(estado)
+         {
+           case 0:
+             if(caracter[i] >='a' && caracter[i]<= 'z')
+              {
+              System.out.println("PRIMER ESTADO CORRECTO");
+              estado=1;
+              }
+             else
+              {
+              estado=3;
+              }
+             break;
+           case 1:
+             if(caracter[i] >= 'a' && caracter[i]<= 'z')
+              {
+              System.out.println("SEGUNDO ESTADO CORRECTO");
+              estado=2;
+              }
+             else
+              {
+              estado=3;
+              }
+             break;
+           case 2 :
+               if(ultimo>='0' && ultimo<='9' && penultimo>= 'a' && penultimo<= 'z')
+               {
+               System.out.println("TERCER ESTADO CORRECTO");
+               
+               estado=estado+100;
+               estado=4;
+               }
+               else
+               {
+               estado=3;
+               }
+               
+               break;
+           case 3 :
+               System.out.println("CADENA TOTAL NO PERMITIDA");
+               i=caracter.length+100;
+               break; 
+           case 4:
+               System.out.println("ES UN IDENTIFICADOR");
+                i=caracter.length+100;
+                
+               break;
+        }
+      
+      }
+      }
+      
+
+      
+      
+    }
+    
