@@ -1,0 +1,76 @@
+package trabajo;
+
+import java.util.Scanner;
+
+public class TRABAJO {
+
+    
+
+ public static void main(String[] args) {
+
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("Ingrese el identificador");
+                    String ide = sc.nextLine();
+                    char [] caracter = ide.toCharArray();
+                    int estado=0;
+                    boolean correcto=false;
+
+                    for (int i = 0; i < ide.length(); i++) {
+
+                            switch(estado) {
+
+			case 0:
+				
+				if(caracter[i]>='a' && caracter[i]<='z')
+				{
+					estado=1;
+				}else {
+					estado=4;
+					correcto=false;
+				}
+				break;
+				
+			case 1:
+				
+				if(caracter[i]>='a' && caracter[i]<='z') {
+					estado=1; //aún sigue
+					
+				}else if(caracter[i]>='0' && caracter[i]<='9' && i==caracter.length-1) {
+					estado=5; //correcto
+					correcto=true;
+				}else {
+					estado=4; //error
+					correcto=false;
+				}
+				break;
+			
+			case 4:
+				correcto=false;
+				break;
+				
+				
+			case 5: 
+				correcto=true;
+				break;
+			
+			}
+			
+			
+		}
+		
+		
+		if(correcto==true)
+		{
+			System.out.println("Es correcto");
+		}else {
+			System.out.println("No es correcto");
+		}
+      }
+      
+    
+}
+    
+    
+
+
+    
